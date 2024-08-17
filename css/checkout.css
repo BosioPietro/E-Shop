@@ -1,0 +1,271 @@
+section{
+    height: calc(100svh - var(--altezza-header));
+    color: var(--bianco);
+}
+
+#info{
+    width: 30%;
+}
+
+#prodotti{
+    padding: 1rem 6rem;
+    gap: 2rem;
+
+}
+
+#cont-prodotti{
+    overflow-y: scroll;
+    transform: scaleX(-1);
+    padding-right: 2rem;
+    position: relative;
+}
+
+#cont-prodotti > *{
+    transform: scaleX(-1);
+}
+
+.blob-griglia{
+    --grandezza: 50rem;
+    height: var(--grandezza);
+    width: var(--grandezza);
+    border-radius: 100svh;
+    background-color: var(--accento);
+    position: fixed;
+    top: calc(50% - var(--grandezza) / 2);
+    left: calc(50% - var(--grandezza) / 2);
+    z-index: -1;
+    transition: filter .75s;
+    opacity: 5%;
+    filter: blur(10rem);
+}
+
+.prodotto{
+    min-height: 15rem;
+    max-height: 15rem;
+    padding: 2rem 1rem;
+}
+
+.prodotto:not(:last-child){
+    border-bottom: 2px solid color-mix(in srgb, transparent 50%, var(--accento) 50%);
+}
+
+.prodotto img{
+    aspect-ratio: 1/1;
+    height: 10rem;
+    border-radius: 1rem;
+    object-fit: contain;
+    caret-color: transparent;
+}
+
+.nome, .prezzo-prodotto{
+    font-size: 2.5rem;
+    font-weight: 600;
+    max-width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sconto{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accento);
+}
+
+#prodotti ion-icon{
+    font-size: 2.5rem;
+    transition: color .25s ease-in-out, filter .25s ease-in-out, scale .25s ease-in-out;
+}
+
+#prodotti ion-icon:hover{
+    color: var(--accento);
+    filter: drop-shadow(0 0 1rem var(--accento));
+    scale: 1.2;
+}
+
+h2{
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.quantita{
+    box-sizing: content-box;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    border: 2px solid var(--accento);
+    margin-inline: 1rem;
+    width: 2ch;
+}
+
+.prodotto button{
+    background-color: transparent;
+    border: none;
+    font-size: 3rem;
+    font-weight: 100;
+    color: inherit;
+    transition: filter .25s ease-in-out;
+}
+
+.prodotto button:hover{
+    filter: drop-shadow(0 0 1rem var(--bianco));
+}
+
+.prodotto button[disabled]{
+    color: var(--grigio);
+    opacity: 50%;
+}
+
+nav{
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#prodotti nav ion-icon{
+    font-size: 2rem;
+}
+
+a{
+    gap: 1rem;
+    color: var(--accento);
+}
+
+nav span{
+    color: var(--grigio);
+}
+
+#totale{
+    font-size: 2.5rem;
+}
+
+input{
+    outline: none;
+    min-width: 10rem;
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+}
+
+.cella-input{
+    width: 100%;
+}
+
+label{
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+}
+
+.cont-chk .content{
+    scale: .75;
+}
+
+#ricordami label{
+    font-size: 1rem;
+}
+
+section button.btn{
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: calc(100% - .5rem);
+    margin-inline: .25rem;
+}
+
+a{
+    color: var(--accento);
+    transition: filter .25s ease-in-out, text-shadow .25s ease-in-out;
+}
+
+.wrapper-input{
+    border: 2px solid var(--accento);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.cella-input ion-icon{
+    scale: 1.5;
+}
+
+.cella-info{
+    padding-block: 1rem;
+    transition: max-height .5s ease-in-out, padding-block .5s ease-in-out;
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+.cella-info, .cella-info > .flex-row{
+    gap: 2rem;
+}
+
+.cella-info h2{
+    margin: 0;
+}
+
+.cella-info button.flex-row{
+    margin-top: 2rem;
+    gap: .5rem;
+    background-color: transparent;
+    font-weight: 700;
+    outline: 0;
+    font-size: 1.5rem;
+    color: var(--accento);
+}
+
+.cella-info button.flex-row:hover, a:hover{
+    filter: drop-shadow(0 0 1rem var(--accento));
+    text-shadow: var(--accento) 0 0 .5rem;
+}
+
+button ion-icon{
+    font-size: 1.75rem;
+}
+
+.collassa{
+    max-height: 0;
+    padding-block: 0;
+}
+
+.wrapper-input.data {
+    padding: 0;
+    border: 0;
+}
+
+.sotto-label{
+    font-size: 1.2rem;
+    color: var(--grigio);
+}
+
+.data input{
+    padding: 1rem;
+    border: 2px solid var(--accento);
+    border-radius: .5rem;
+}
+
+.wrapper-data{
+    align-items: flex-end;
+}
+
+.wrapper-data span{
+    padding: 0 1rem .5rem 1rem;
+    font-size: 2rem;
+    color: var(--grigio);
+}
+
+#totale{
+    margin-left: 1rem;
+}
+
+#vuoto{
+    text-align: center;
+    font-size: 4rem;
+    position: absolute;
+    top: calc(50% - 2rem);
+    width: 100%;
+}
+
+.nascosto{
+    display: none;
+}

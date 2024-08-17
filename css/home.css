@@ -1,0 +1,608 @@
+body{
+    --altezza-main: 60svh;
+}
+
+main{
+    --larg-principale: 70vw;
+    width: 100%;
+    height: var(--altezza-main);
+    position: relative;
+    overflow-x: hidden;
+    z-index: 0;
+    background-color: var(--sfondo);
+}
+
+.griglia-main{
+    --box-shadow: inset 0px 0px 100px 10rem var(--sfondo);
+    --offset: calc(var(--larg-principale) * -1);
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    box-shadow: var(--box-shadow);
+    z-index: -1;
+    outline: var(--sfondo) solid 20px;
+    border-radius: 100svh;
+    outline-offset: -10px;
+
+}
+
+main .griglia-main:first-of-type{
+    left: 0;
+}
+
+main .griglia-main:nth-of-type(2){
+    right: 0;
+}
+
+.wrapper-griglia{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+main .wrapper-griglia{
+    border-radius: 100svh;
+}
+
+.img-griglia{
+    --grandezza-griglia: 6rem;
+    background-image: url(../img/img_griglia.png);
+    background-size: var(--grandezza-griglia) var(--grandezza-griglia);
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    backdrop-filter: blur(1rem);
+}
+
+.blob-griglia{
+    --grandezza: 70%;
+    height: var(--grandezza);
+    width: var(--grandezza);
+    border-radius: 100svh;
+    background-color: var(--accento);
+    position: absolute;
+    top: calc(50% - var(--grandezza) / 2);
+    left: calc(50% - var(--grandezza) / 2);
+    z-index: -1;
+    transition: filter .75s;
+}
+
+/* ion-icon{
+    cursor: pointer;
+} */
+
+#wrapper-principale{    
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+#cont-principale{
+    --spaziatura: 3rem;
+    font-size: 5rem;
+    width: 25ch;
+    height: 100%;
+    gap: var(--spaziatura);
+    background-image: radial-gradient(50% 100% at 50% 50%, var(--sfondo) 70%, transparent 100%);
+    color: var(--bianco);
+}
+
+main h1{
+    font-size: 6rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+main h3{
+    color: var(--grigio);
+    font-size: 1.5rem;
+    font-weight: 100;
+    text-align: center;
+}
+
+main h4{
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--bianco);
+}
+
+main .btn{
+    max-width: 10rem;
+    margin-inline: auto;
+    font-size: 2rem;
+    min-width: 20rem;
+    border-radius: 1rem;
+    font-weight: 600;
+}
+
+#cont-carte{
+    --spaziatura: 4rem;
+    height: 25vh;
+    width: 100%;
+    justify-content: center;
+    gap: var(--spaziatura);
+    padding:  0 var(--spaziatura) 0 var(--spaziatura);
+    z-index: 2;
+    position: relative;
+}
+
+.carta-stat{
+    height: 100%;
+    border-radius: 1rem;
+    gap: 2rem;
+    aspect-ratio: 1/1;
+    color: var(--bianco);
+    position: relative;
+    background-color: transparent;
+    user-select: none;
+    border: 2px solid var(--accento);
+    transition: filter .2s ease-in-out;
+}
+
+.carta-stat:hover{
+    filter: drop-shadow(0 0 .5rem var(--accento)) brightness(1.2);
+}
+
+.carta-stat h6{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.carta-stat ion-icon{
+    font-size: 5rem;
+    color: var(--accento);
+}
+
+article{
+    min-height: 10vh;
+}
+
+.cont-freccia{
+    height: 8vh;
+    padding-bottom: 1rem;
+    justify-content: flex-end;
+}
+
+.cont-freccia ion-icon{
+    color: var(--accento);
+    font-size: 3.5rem;
+    animation: freccia 2s infinite alternate;
+    transition: filter .2s ease-in-out, scale .2s ease-in-out;
+}
+
+.cont-freccia ion-icon:hover{
+    filter: drop-shadow(0 0 .5rem var(--accento)) brightness(1.2);
+    scale: 1.1;
+}
+
+@keyframes freccia{
+    from{transform: translateY(0)}
+    to{transform: translateY(-1rem)}
+}
+
+#recensioni, 
+#recensioni > div:first-of-type{
+    height: 100svh;
+}
+
+#recensioni .blob-griglia{
+    --grandezza: 60rem;
+    top: calc(50% - var(--grandezza) / 2);
+    left: calc(50% - var(--grandezza) / 2);
+    background-color: var(--sfondo);
+    transition: background-color .7s, filter .7s ease-out;
+}
+
+#recensioni{
+    position: relative;
+    overflow: hidden;
+    gap: 4rem;
+}
+
+#recensioni h1{
+    color: var(--bianco);
+    /* text-align: center; */
+    font-size: 6rem;
+}
+
+#recensioni:hover .blob-griglia{
+    background-color: var(--accento);
+}
+
+#recensioni .img-griglia{
+    backdrop-filter: blur(10rem);
+}
+
+article:not(#cont-carte)::before, 
+article:not(#cont-carte)::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10rem;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(180deg, var(--sfondo) 20%, transparent 100%);
+    z-index: 1;
+    opacity: 1;
+}
+
+article:not(#cont-carte)::after{
+    top: auto;
+    bottom: 0;
+    transform: rotate(180deg);
+}
+
+#recensioni > div:first-of-type{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+#cont-stat{
+    --spaziatura: 2rem;
+    gap: var(--spaziatura);
+    padding-inline: var(--spaziatura);
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.statistica{
+    color: var(--bianco);   
+    filter: drop-shadow(0 0 1rem var(--sfondo));
+    border-radius: 1rem;
+    height: 20rem;
+    flex-grow: 1;
+}   
+
+.statistica h3{
+    font-size: 5rem;
+}
+
+.statistica h6{
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.statistica ion-icon{
+    font-size: 2rem;
+}
+
+#cont-recensioni{
+    --larg-recensioni: max(30rem, 25%);
+    --altezza-recensioni: 25rem;
+    --gap-recensioni: 3rem;
+    --numero: 10;
+    --tempo: 90s;
+    gap: var(--gap-recensioni);
+    flex-grow: 1; 
+    justify-content: flex-end;
+    height: 100svh;
+    transform: rotate(10deg);
+    padding-inline: var(--gap-recensioni);
+}
+
+#cont-recensioni > .flex-col{
+    overflow: visible;
+    gap: var(--gap-recensioni);
+    position: relative;
+    align-items: flex-start;
+}
+
+#cont-recensioni > .flex-col:nth-last-of-type(even){
+    align-items: flex-end;
+}
+
+.recensione{
+    min-width: var(--larg-recensioni);
+    border: 2px solid var(--accento);
+    background-color: color-mix(in srgb, transparent 3%, var(--sfondo) 97%);
+    color: var(--bianco);
+    padding: 2rem;
+    border-radius: 1rem;
+    gap: 2rem;
+    transition: filter .25s ease-in-out, background-color .25s ease-in-out;
+    min-height: var(--altezza-recensioni);
+    max-height: var(--altezza-recensioni);
+}
+
+.stelle{
+    font-size: 1.5rem;
+}
+
+.nome h6{
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.nome{
+    gap: 1rem;
+}
+
+.nome > ion-icon{
+    font-size: 4rem;
+}
+
+.recensione p{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.recensione > .flex-row{
+    justify-content: flex-start;
+}
+
+#cont-recensioni > .flex-col:nth-of-type(even){
+    animation: muovi-sotto var(--tempo) linear infinite;
+}
+
+@keyframes muovi-sotto{
+    0%{
+        translate: 0 0;
+    }
+    99.99999%{
+        translate: 0 calc(-1 * var(--numero) * (var(--altezza-recensioni) + var(--gap-recensioni)) );
+    }
+    100%{
+        translate: 0 0;
+    }
+}
+
+#cont-recensioni > .flex-col:nth-of-type(odd){
+    justify-content: flex-end;
+    animation: muovi-sopra var(--tempo) linear infinite;
+}
+
+@keyframes muovi-sopra{
+    0%{
+        translate: 0 0;
+    }
+    99.99999%{
+        translate: 0 calc(var(--numero) * (var(--altezza-recensioni) + var(--gap-recensioni)) );
+    }
+    100%{
+        translate: 0 0;
+    }
+}
+
+#cont-recensioni > .flex-col:hover{
+    animation-play-state: paused;
+}
+
+.recensione:hover{
+    background-color: var(--sfondo);
+    filter: brightness(1.2);
+}
+
+#cont-categoria{
+    gap: 1rem;
+    padding-inline: 2rem;
+    width: 80%;
+    position: relative;
+    filter: drop-shadow(0 0 10rem color-mix(in srgb, var(--accento) 10%, transparent 90%));
+}
+
+.categoria{
+    --grandezza-gradient: 1000px;
+    position: relative;
+    height: 17.5rem;
+    width: max(calc(33% - 2rem), 30rem);
+    min-width: max(30rem, 25%);
+    justify-content: space-evenly;
+    border-radius: 1rem;
+    position: relative;
+    padding: 2rem;
+    /* cursor: pointer; */
+    background-size: cover;
+    transition: filter .2s ease-in-out;
+    /* background-color: color-mix(in srgb, transparent 90%, var(--accento) 10%); */
+}
+
+.categoria h4{
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--bianco);
+    transition: all .2s ease-in-out;
+    filter: drop-shadow(0 0 1rem var(--sfondo));
+}
+
+.wrapper-categoria{
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.wrapper-categoria > span{
+    position: relative;
+}
+
+#prodotti{
+    color: var(--bianco);
+    padding-block: 4rem;
+    gap: 3rem;
+    position: relative;
+    overflow: hidden;
+    height: 100svh;
+}
+
+#prodotti h1,
+#partner h1{
+    font-size: 5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+#prodotti h3, #partner h3{
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+#cont-categoria > .categoria::after,
+.categoria:hover::before {
+    opacity: 1;
+}
+
+.categoria::before,
+.categoria::after {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+}
+
+.categoria::before {
+    background: radial-gradient(var(--grandezza-gradient) circle at var(--mouse-x) var(--mouse-y), color-mix(in srgb, var(--accento) 30%, transparent 70%), transparent 40%);
+    z-index: 3;
+}
+
+.categoria::after {  
+    background: radial-gradient(var(--grandezza-gradient) circle at var(--mouse-x) var(--mouse-y), var(--accento), transparent 40%);
+    z-index: 1;
+}
+
+.categoria > .categoria-content {
+    background-color: var(--sfondo);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    inset: 2px;
+    padding: 10px;
+    position: absolute;
+    z-index: 2;
+    box-shadow: inset 0px 0px 2rem 2rem var(--sfondo);
+    background-size: cover;
+    filter: grayscale(1);
+}
+
+
+
+#prodotti .blob-griglia{
+    --grandezza: 20rem;
+    filter: blur(70rem);
+    z-index: -2;
+}
+
+#partner .blob-griglia{
+    --grandezza: 20rem;
+    filter: blur(100rem);
+}
+
+#partner{
+    color: var(--bianco);
+    gap: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.loghi{
+    --raggio: 1.75rem;
+    --numero: 12;
+    --tempo: 60;
+    height: 30vh;
+    width: 100%;
+    gap: 2rem;
+    position: relative;
+    height: 100svh;
+    animation: gira calc(var(--tempo) * 1s)  linear infinite;
+}
+
+@keyframes gira {
+    from{transform: rotate(0)}
+    to{transform: rotate(360deg)}
+}
+
+.logo-partner{
+    --grandezza: 10rem;
+    height: var(--grandezza);
+    aspect-ratio: 1/1;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: calc(50% - var(--grandezza) / 2);
+    top: calc(50% - var(--grandezza) / 2);
+    animation: contro-routa calc(var(--tempo) * 1s) linear infinite;
+}
+
+/* Sono pazzo */
+@keyframes contro-routa { 
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+.wrapper-partner{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    background-color: color-mix(in srgb, transparent 50%, var(--sfondo) 50%);
+    backdrop-filter: blur(.5rem);
+    padding-inline: 2rem;
+    border-right: 2px solid var(--accento);
+}
+
+.cont-partner{
+    height: 100%;
+    position: relative;
+    padding-inline: 2rem;
+    gap: 2rem;
+}
+
+.logo-grande{
+    --grandezza: 15rem;
+    --padding: 2rem;
+    font-family: Logo, sans-serif;
+    font-size: var(--grandezza);
+    height: var(--grandezza);
+    width: var(--grandezza);
+    text-align: center;
+    line-height: 110%;
+    border-radius: 100svh;
+    position: absolute;
+    top: calc(50% - var(--grandezza) / 2);
+    right: calc(var(--grandezza) / -2);
+    z-index: 1;
+    user-select: none;
+}
+
+.logo-grande div{
+    box-sizing: content-box;
+    height: 100%;
+    width: 100%;
+    /* background-color: var(--sfondo); */
+    background-image: linear-gradient(90deg, transparent 0%, var(--sfondo) 50%);
+    padding: var(--padding);
+    border-radius: 100svh;
+}
+
+.logo-grande::after{
+    --offset: 4px;
+    content: '';
+    position: absolute;
+    height: calc(var(--grandezza) + var(--offset));
+    width: calc(var(--grandezza) + var(--offset));
+    padding: var(--padding);
+    top: calc(var(--offset) / -2);
+    left: calc(var(--offset) / -2);
+    /* border-radius: 100svh; */
+    outline-offset: calc(var(--offset) / -2);
+    outline: 2px solid var(--accento);
+    z-index: -1;
+    border-radius: 100svh;
+    clip-path: polygon(50% -10%, 110% 0%, 110% 100%, 50% 110%)
+}
+
+#partner h1, #partner h3{
+    margin-right: 7rem;
+}

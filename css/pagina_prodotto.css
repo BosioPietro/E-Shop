@@ -1,0 +1,292 @@
+
+header{
+    margin-bottom: 1rem;
+}
+
+img{
+    height: 100%;
+    width: 50%;
+}
+
+#prodotto{
+    height: calc(100svh - var(--altezza-header));
+}
+
+article{
+    color: var(--bianco);
+}
+
+#prezzo span{
+    color: var(--grigio);
+    font-size: 50%;
+}
+
+
+#titolo{
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+#rating{
+    font-size: 1rem;
+}
+
+#prezzo{
+    font-size: 3rem;
+    font-weight: 500;
+    margin-top: 3rem;
+}
+
+#precedente{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#spedizione{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-block: 3rem;
+}
+
+#prodotto button{
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+}
+
+.stelle, #precedente span, #spedizione ion-icon{
+    color: var(--accento);
+}
+
+#spedizione ion-icon{
+    font-size: 1.5rem;
+    transform: translateY(-.2rem);
+    margin-right: .5rem;
+}
+
+#specifiche{
+    padding-block: 4rem;
+}
+
+#specifiche h1{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.table{
+    width: 70%;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    caret-color: transparent;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.td:nth-child(odd){
+    font-weight: 600;
+    color: var(--accento);
+}
+
+/* tr:nth-child(odd){
+    background-color: color-mix(in srgb, transparent 90%, var(--bianco) 10%);
+} */
+
+.td{
+    --grandezza-gradient: 1000px;
+    position: relative;
+    height: 7rem;
+    background-color: color-mix(in srgb, transparent 95%, var(--accento) 5%);
+    text-transform: capitalize;
+}
+
+
+#specifiche:hover .td::after,
+.td:hover::before{
+    opacity: 1;
+}
+
+
+.td::after,
+.td::before{
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 500ms;
+    width: 100%;
+}
+
+.td::before {
+    background: radial-gradient(var(--grandezza-gradient) circle at var(--mouse-x) var(--mouse-y), color-mix(in srgb, var(--accento) 10%, transparent 90%), transparent 40%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+
+.td::after {  
+    opacity: 1;
+    background: radial-gradient(var(--grandezza-gradient) circle at var(--mouse-x) var(--mouse-y), var(--accento), transparent 90%);
+    z-index: 1;
+    background-color: transparent;
+}
+
+.td > .td-content {
+    --offset: 4px;
+    background-color: var(--sfondo);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    width: calc(100% - var(--offset));
+    height: calc(100% - var(--offset));
+    left: calc(var(--offset) / 2);
+    top: calc(var(--offset) / 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blob-griglia{
+    --grandezza: 50rem;
+    height: var(--grandezza);
+    width: var(--grandezza);
+    border-radius: 100svh;
+    background-color: var(--accento);
+    position: fixed;
+    top: calc(50% - var(--grandezza) / 2);
+    left: calc(50% - var(--grandezza) / 2);
+    z-index: -1;
+    transition: filter .75s;
+    opacity: 5%;
+    filter: blur(10rem);
+}
+
+#recensioni{
+    color: var(--bianco);
+    gap: 2rem;
+}
+
+#recensioni h1{
+    font-size: 4rem;
+    text-align: center;
+}
+
+#link-recensioni{
+    text-decoration: underline;
+}
+
+.recensione{
+    min-width: var(--larg-recensioni);
+    color: var(--bianco);
+    padding: 2rem;
+    border-radius: 1rem;
+    gap: 2rem;
+    transition: filter .25s ease-in-out, background-color .25s ease-in-out;
+    min-height: var(--altezza-recensioni);
+    max-height: var(--altezza-recensioni);
+}
+
+.recensione p{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.recensione > .flex-row{
+    justify-content: flex-start;
+}
+
+.recensione h6{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.nome > ion-icon{
+    font-size: 4rem;
+    margin-right: .5rem;
+}
+
+.stelle{
+    font-size: 1.5rem;
+}
+
+#no-recensioni{
+    gap: 2rem;
+    /* display: none; */
+}
+
+.radio-inputs {
+    --larg-cella: 10rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: var(--sfondo);
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: calc(var(--larg-cella) * 4);
+}
+
+.radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+    user-select: none;
+    width: var(--larg-cella);
+}
+
+.radio-inputs .radio input {
+    display: none;
+}
+
+.radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    color: var(--bianco);
+    transition: all .15s ease-in-out;
+    font-size: 1rem;
+}
+
+.radio-inputs .radio input:checked + .name {
+    background-color: var(--accento);
+    font-weight: 600;
+}
+
+#descrizione{
+    width: 100%;
+    min-height: 20rem;
+}
+
+#rating > div:not(.stelle){
+    display: flex;
+    align-items: flex-end;
+    height: 1.5rem;
+}
+
+#prodotto img{
+    object-fit: contain;
+    padding: 20rem 10rem;
+}
+
+h4.non-disp, ion-icon.non-disp {
+    color: #dd4646;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
+ion-icon.non-disp {
+    margin-right: .5rem;
+}
+
+#modifica{
+    font-size: 2rem;
+}

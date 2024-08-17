@@ -1,0 +1,54 @@
+body{
+    height: 100svh;
+    color: var(--bianco);
+    gap: 1rem;
+    isolation: isolate;
+}
+
+h2{
+    font-size: 5rem;
+    transition: filter .5s ease-out;
+}
+
+h4{
+    font-size: 2rem;
+    transition: filter .5s ease-out;
+}
+
+h6{
+    color: var(--grigio);
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: filter .5s ease-out;
+}
+
+a{
+    text-decoration: underline;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: filter .5s ease-out;
+}
+
+.img-griglia{
+    --grandezza-griglia: 6rem;
+    background-image: url(../img/img_griglia.png);
+    background-size: var(--grandezza-griglia) var(--grandezza-griglia);
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    backdrop-filter: blur(20rem);
+    inset: 0;
+}
+
+.blob-griglia{
+    --grandezza: 60rem;
+    height: var(--grandezza);
+    width: var(--grandezza);
+    border-radius: 100svh;
+    background-color: var(--accento);
+    position: absolute;
+    top: calc(50% - var(--grandezza) / 2);
+    left: calc(50% - var(--grandezza) / 2);
+    z-index: -2;
+    transition: background-color .7s, filter .7s ease-out;
+}
